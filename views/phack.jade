@@ -1,0 +1,35 @@
+script(src='http://jsconsole.com/remote.js?53BFAEC4-5C5A-4EEA-B5B3-B539DB79BC8D')
+script
+    function fit(img){
+        img.width *= Math.min(
+            (window.innerHeight - 16) / img.height,
+            (window.innerWidth  - 16) / img.width
+        );
+    }
+
+    function pageX(evt){
+        return Array.prototype.pop.call(evt.touches).pageX
+    }
+
+    window.onload = function(){
+        var photos="#{photos}".split(","),
+            index =photos.indexOf("#{photo}"),
+            startX, length;
+        fit(document.querySelector('img'));
+
+        document.addEventListener('touchstart',function(e){
+            startX = pageX(e)
+        });
+        document.addEventListener('touchmove', function(e){
+            length = startX - pageX(e)
+        })
+        document.addEventListener('touchend',function(e){
+            if (Math.abs(length) > 60){
+                index += (length>0 ? -1: 1);
+                window.location="/p/"+photos.slice(index)[0]
+            }
+            length = 0;
+        })
+    }
+
+img(src='/'+photo)

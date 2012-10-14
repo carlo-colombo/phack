@@ -1,0 +1,13 @@
+{
+  "name": "phackjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.0rc5",
+    "jade": "*",
+    "less-middleware": "*",
+  }
+}

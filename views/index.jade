@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1= title
+    ul
+      each photo in photos
+        li
+            a(href='p/'+photo)= photo
