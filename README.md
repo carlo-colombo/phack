@@ -5,9 +5,9 @@ local remote photo viewer
 Install
 ``` npm -g install phack ```
 
-# run `phack` in your photos directory
-# point your touch-events-enabled-browser to `http://<your-local-ip>:3000` to view photo list
-# click on a link to start the gallery
+1. run `phack` in your photos directory
+2. point your touch-events-enabled-browser to `http://<your-local-ip>:3000` to view photo list
+3. click on a link to start the gallery
 
 Fun facts
 ------------
