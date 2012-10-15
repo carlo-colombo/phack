@@ -12,5 +12,9 @@
     "jade": "*",
     "less-middleware": "*"
   },
+  "repository" : {
+    "type" : "git",
+    "url" : "git@github.com:carlo-colombo/phack.git"
+  },
   "bin": "./phack.js"
 }
