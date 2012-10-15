@@ -1,13 +1,16 @@
 {
-  "name": "phackjs",
+  "name": "phack",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "start": "node app"
+  },
+  "author": {
+    "name": "Carlo Colombo <@lit_car>"
   },
   "dependencies": {
     "express": "3.0.0rc5",
     "jade": "*",
     "less-middleware": "*"
-  }
+  },
+  "bin": "./phack.js"
 }
