@@ -12,6 +12,7 @@ exports.index = function(req, res){
 
 exports.phack = function(req,res){
     res.render('phack',{
-        photo: req.params.photo
+        photo: req.params.photo,
+        title:  req.params.photo
     })
 }

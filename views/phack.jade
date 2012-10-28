@@ -1,34 +1,54 @@
-script
-    function fit(img){
-        img.width *= Math.min(
-            (window.innerHeight - 16) / img.height,
-            (window.innerWidth  - 16) / img.width
-        );
-    }
+extends layout
 
-    function pageX(evt){
-        return Array.prototype.pop.call(evt.touches).pageX
-    }
+block content
+    script(src='http://jsconsole.com/remote.js?phack-53BFAEC4-5C5A-4EEA-B5B3-B539DB79BC8D')
+    script
+        function fit(img){
+            console.log("fit")
+            console.log("window.innerHeight", window.innerHeight)
+            console.log("img.height", img.height)
+            console.log("window.innerWidth", window.innerWidth)
+            console.log("img.width", img.width)
 
-    window.onload = function(){
-        var photos="#{photos}".split(","),
-            index =photos.indexOf("#{photo}"),
-            startX, length;
-        fit(document.querySelector('img'));
+            img.width *= Math.min(
+                (window.innerHeight) / img.height,
+                (window.innerWidth) / img.width
+            );
+        }
 
-        document.addEventListener('touchstart',function(e){
-            startX = pageX(e)
-        });
-        document.addEventListener('touchmove', function(e){
-            length = startX - pageX(e)
-        })
-        document.addEventListener('touchend',function(e){
-            if (Math.abs(length) > 60){
-                index += (length>0 ? -1: 1);
-                window.location="/p/"+photos.slice(index)[0]
-            }
-            length = 0;
-        })
-    }
+        function pageX(evt){
+            return Array.prototype.pop.call(evt.touches).pageX
+        }
 
-img(src='/'+photo)
+        window.onload = function(){
+            var photos="#{photos}".split(","),
+                index =photos.indexOf("#{photo}"),
+                startX, length;
+
+            document.addEventListener('touchstart',function(e){
+                startX = pageX(e)
+            });
+            document.addEventListener('touchmove', function(e){
+                length = startX - pageX(e)
+            })
+            document.addEventListener('touchend',function(e){
+                if (Math.abs(length) > 400){
+                    index += (length>0 ? -1: 1);
+                    window.location="/p/"+photos.slice(index)[0]
+                }
+                length = 0;
+            })
+
+            //img = document.querySelector('img');
+            //console.log('setTimeout')
+            //setTimeout(function(){
+            //    console.log('exec')
+            //    fit(img)
+            //},1000) 
+            div = document.querySelector('div')
+            img = document.querySelector('img')
+            img.height = 672
+        }
+
+    .photo
+        img(src='/'+photo)

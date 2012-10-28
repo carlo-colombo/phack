@@ -1,7 +1,12 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 a {
   color: #00B7FF;
+}
+body {
+  background-color: black;
+}
+.photo {
+  width: 100%;
+}
+.photo img {
+  margin: 0 auto;
 }
