@@ -1,21 +1,22 @@
 a {
   color: #00B7FF;
 }
+
 html {
   background: #111;
   height: 100%;
-  background: -webkit-linear-gradient(90deg, #333333, #222222);
-  background: linear-gradient(0deg, #333333, #222222);
+  background: -webkit-linear-gradient(90deg, #333, #222);
+  background: linear-gradient(0deg, #333, #222);
 }
 .photo img {
-  position: absolute;
+  position:absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  -webkit-transform:translate(-50%, -50%);
+  -moz-transform:translate(-50%, -50%);
+  -ms-transform:translate(-50%, -50%);
+  -o-transform:translate(-50%, -50%);
+  transform:translate(-50%, -50%);
   max-width: 95%;
   max-height: 95%;
 }

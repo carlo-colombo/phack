@@ -20,7 +20,6 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.static(path.join(process.cwd())));
 });
@@ -36,6 +35,7 @@ app.locals.photos = (function (){
 
 app.configure('development', function(){
   app.use(express.errorHandler());
+  app.use(require('less-middleware')({ src: __dirname + '/public' }));
 });
 
 app.get('/', routes.index);
