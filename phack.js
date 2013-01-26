@@ -35,7 +35,6 @@ app.locals.photos = (function (){
 
 app.configure('development', function(){
   app.use(express.errorHandler());
-  app.use(require('less-middleware')({ src: __dirname + '/public' }));
 });
 
 app.get('/', routes.index);
