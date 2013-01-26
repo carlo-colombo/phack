@@ -1,21 +1,7 @@
 extends layout
 
 block content
-    script(src='http://jsconsole.com/remote.js?phack-53BFAEC4-5C5A-4EEA-B5B3-B539DB79BC8D')
     script
-        function fit(img){
-            console.log("fit")
-            console.log("window.innerHeight", window.innerHeight)
-            console.log("img.height", img.height)
-            console.log("window.innerWidth", window.innerWidth)
-            console.log("img.width", img.width)
-
-            img.width *= Math.min(
-                (window.innerHeight) / img.height,
-                (window.innerWidth) / img.width
-            );
-        }
-
         function pageX(evt){
             return Array.prototype.pop.call(evt.touches).pageX
         }
@@ -32,22 +18,12 @@ block content
                 length = startX - pageX(e)
             })
             document.addEventListener('touchend',function(e){
-                if (Math.abs(length) > 400){
+                if (Math.abs(length) > 200){
                     index += (length>0 ? -1: 1);
                     window.location="/p/"+photos.slice(index)[0]
                 }
                 length = 0;
             })
-
-            //img = document.querySelector('img');
-            //console.log('setTimeout')
-            //setTimeout(function(){
-            //    console.log('exec')
-            //    fit(img)
-            //},1000) 
-            div = document.querySelector('div')
-            img = document.querySelector('img')
-            img.height = 672
         }
 
     .photo
